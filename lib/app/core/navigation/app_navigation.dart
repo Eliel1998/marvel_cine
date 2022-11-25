@@ -2,15 +2,15 @@ import 'package:get/route_manager.dart';
 import 'package:marvel_cine/app/feature/app_init/pages/init_page.dart';
 
 import '../../feature/movies/presenter/pages/movies_page.dart';
-import 'bindings/controllers/init_controller_binding.dart';
-import 'bindings/controllers/movies_controller_binding.dart';
+import '../../feature/app_init/bindings/init_binding.dart';
+import '../../feature/movies/bindings/movies_binding.dart';
 
-class Nav {
+class AppNavigation {
   static List<GetPage> routes = [
     GetPage(
       name: '/',
       page: () => const MoviesPage(),
-      binding: MoviesControllerBinding(),
+      binding: MoviesBinding(),
     ),
     GetPage(
       name: '/initPage',

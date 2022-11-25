@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marvel_cine/app/core/components/text_view_component.dart';
 
+
+import '../../../../components/text_view_component.dart';
 import '../../domain/entities/movie_entity.dart';
 
 import '../controller/movies_controller.dart';

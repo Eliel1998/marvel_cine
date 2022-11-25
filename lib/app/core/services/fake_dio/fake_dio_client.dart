@@ -3,7 +3,7 @@
 import 'fake_response.dart';
 
 class FakeDioClient {
-  get(String url) async {
+  FakeResponse get(String url)  {
     switch (url) {
       case 'https://api.themoviedb.org/3/movies/avangers':
         return FakeResponse(data: {
@@ -466,6 +466,8 @@ class FakeDioClient {
             }
           ]
         }, statusCode: 200);
+       default: 
+        return FakeResponse(data: null, statusCode: 404);
     }
   }
 }

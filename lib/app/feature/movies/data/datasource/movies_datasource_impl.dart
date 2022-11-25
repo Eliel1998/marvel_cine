@@ -14,7 +14,7 @@ class MoviesDatasourceImpl implements MoviesDatasource {
   @override
   Future<List<MovieEntity>> getMovies() async {
     try {
-      final FakeResponse response = await _dio.get('https://api.themoviedb.org/3/movies/avangers');
+      final response =  _dio.get('https://api.themoviedb.org/3/movies/avangers');
 
       if (response.statusCode == 200) {
         List<dynamic> responseData = response.data['mcu'];

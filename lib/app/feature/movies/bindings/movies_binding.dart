@@ -5,9 +5,9 @@ import 'package:marvel_cine/app/feature/movies/data/repositories/movies_reposito
 import 'package:marvel_cine/app/feature/movies/domain/usecases/get_movies_usecase.dart';
 import 'package:marvel_cine/app/feature/movies/presenter/store/movie_store.dart';
 
-import '../../../../feature/movies/presenter/controller/movies_controller.dart';
+import '../presenter/controller/movies_controller.dart';
 
-class MoviesControllerBinding extends Bindings {
+class MoviesBinding extends Bindings {
   @override
   Future<void> dependencies() async {
     Get.put(FakeDioClient());
