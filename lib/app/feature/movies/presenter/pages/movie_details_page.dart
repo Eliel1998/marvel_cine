@@ -24,20 +24,18 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
       ),
       extendBodyBehindAppBar: true,
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: Image.network(movie.imageUrl).image,
+            image: NetworkImage(movie.imageUrl),
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.6), BlendMode.darken),
           ),
-          color: Colors.black,
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
-        child: Center(
+          height: double.infinity,
+          width: double.infinity,
+          child: Hero(
+            tag: movie.id,
+            child: Center(
           child: Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -106,7 +104,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
             ),
           ),
         ),
-      ),
+          )),
     );
   }
 }
