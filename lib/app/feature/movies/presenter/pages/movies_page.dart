@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:marvel_cine/app/components/movie_tile.dart';
 
 import '../../../../components/text_view_component.dart';
 import '../../domain/entities/movie_entity.dart';
@@ -35,8 +35,11 @@ class _HomePageState extends State<MoviesPage> {
       appBar: AppBar(
         leading: const Icon(Icons.menu),
         title: SizedBox(
-          height: 50,
-          child: Image.asset('assets/images/marvel.png',fit: BoxFit.fitHeight,)),
+            height: 50,
+            child: Image.asset(
+              'assets/images/marvel.png',
+              fit: BoxFit.fitHeight,
+            )),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
@@ -79,61 +82,14 @@ class _HomePageState extends State<MoviesPage> {
                           scrollDirection: Axis.horizontal,
                           itemCount: controller.movieStore.movies.length,
                           itemBuilder: (context, index) {
-                            final MovieEntity movie = controller.movieStore.movies[index];
+                            final MovieEntity movie =
+                                controller.movieStore.movies[index];
                             return Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Container(
-                                  margin: const EdgeInsets.all(10),
-                                  height: 200,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(movie.imageUrl),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.8),
-                                        spreadRadius: 5,
-                                        blurRadius: 7,
-                                        offset: const Offset(0, 3),
-                                      ),
-                                    ],
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(10),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Container(
-                                            margin: const EdgeInsets.all(5),
-                                            height: 20,
-                                            width: 20,
-                                            decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Color.fromARGB(
-                                                  150, 177, 172, 172),
-                                            ),
-                                            child: Center(
-                                                child: Text(
-                                              '${index + 1}',
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10,
-                                              ),
-                                            )),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                MovieTile(index: index, movie: movie),
                                 Text(
-                                  quebraLinha(movie.title),
+                                  controller.lineBeak(movie.title),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(color: Colors.white),
                                 ),
@@ -154,8 +110,4 @@ class _HomePageState extends State<MoviesPage> {
           )),
     );
   }
-}
-
-String quebraLinha(String value) {
-  return value.replaceFirst(RegExp(r':'), ':\n');
 }
