@@ -14,6 +14,7 @@ class MovieDetailsPage extends StatefulWidget {
 
 class _MovieDetailsPageState extends State<MovieDetailsPage> {
   MovieEntity get movie => Get.arguments as MovieEntity;
+  Size get screen => MediaQuery.of(context).size;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +28,8 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
         children: [
           // ignore: sort_child_properties_last
           Hero(tag: movie.id, child:Container(
-            height: MediaQuery.of(context).size.height * 0.65,
+            height: screen.height * 0.65,
             decoration: BoxDecoration(
-              // color: Colors.black.withOpacity(0.9),
               image: DecorationImage(
                image: Image.network(movie.imageUrl).image,
                 fit: BoxFit.cover,
