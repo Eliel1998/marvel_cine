@@ -1,7 +1,6 @@
 
 
 import '../../../../core/services/fake_dio/fake_dio_client.dart';
-import '../../../../core/services/fake_dio/fake_response.dart';
 import '../../domain/entities/movie_entity.dart';
 import '../failures/failures.dart';
 import '../mappers/movie_entity_mapper.dart';

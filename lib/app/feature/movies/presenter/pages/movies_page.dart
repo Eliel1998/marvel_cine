@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marvel_cine/app/components/movie_tile.dart';
+import 'package:marvel_cine/app/feature/movies/presenter/pages/movie_details_page.dart';
 
 import '../../../../components/text_view_component.dart';
 import '../../domain/entities/movie_entity.dart';
@@ -59,15 +60,15 @@ class _HomePageState extends State<MoviesPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextViewComponent(padding: 8, text: 'MARVEL'),
-                TextViewComponent(padding: 8, text: 'CINEMATIC'),
-                TextViewComponent(padding: 8, text: 'UNIVERSE'),
+                const TextViewComponent(padding: 8, text: 'MARVEL'),
+                const TextViewComponent(padding: 8, text: 'CINEMATIC'),
+                const TextViewComponent(padding: 8, text: 'UNIVERSE'),
                 const SizedBox(
                   height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                  children:const [
                     TextViewComponent(
                         padding: 8, text: 'LINHA DO TEMPO', fontSize: 15),
                   ],
@@ -87,7 +88,10 @@ class _HomePageState extends State<MoviesPage> {
                             return Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                MovieTile(index: index, movie: movie),
+                                MovieTile(index: index, movie: movie,onTap: () {
+                                  Get.toNamed(MovieDetailsPage.routeName, arguments: movie);
+
+                                },),
                                 Text(
                                   controller.lineBeak(movie.title),
                                   textAlign: TextAlign.center,
