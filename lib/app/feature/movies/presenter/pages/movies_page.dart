@@ -23,7 +23,7 @@ class _HomePageState extends State<MoviesPage> {
   }
 
   final controller = Get.find<MoviesController>();
-
+  Size get screen => MediaQuery.of(context).size;
   @override
   void initState() {
     initAll();
@@ -35,12 +35,19 @@ class _HomePageState extends State<MoviesPage> {
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(Icons.menu),
-        title: SizedBox(
-            height: 50,
-            child: Image.asset(
-              'assets/images/marvel.png',
-              fit: BoxFit.fitHeight,
-            )),
+        title: Row(
+          children: [
+            SizedBox(
+              width:screen.width * 0.16,
+            ),
+            SizedBox(
+                height: 50,
+                child: Image.asset(
+                  'assets/images/marvel.png',
+                  fit: BoxFit.fitHeight,
+                )),
+          ],
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
