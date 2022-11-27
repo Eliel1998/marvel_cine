@@ -76,15 +76,14 @@ class _HomePageState extends State<MoviesPage> {
                 Container(
                   margin: const EdgeInsets.only(bottom: 60),
                   height: 280,
-                  child: controller.movieStore.movies.value.isEmpty
+                  child: controller.movieStore.movies.isEmpty
                       ? const Center(child: CircularProgressIndicator())
                       : ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemCount: controller.movieStore.movies.length,
                           itemBuilder: (context, index) {
-                            final MovieEntity movie =
-                                controller.movieStore.movies[index];
+                            final MovieEntity movie = controller.movieStore.movies[index];
                             return Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
