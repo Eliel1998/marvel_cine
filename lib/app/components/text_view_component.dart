@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class TextViewComponent extends StatefulWidget {
   final String text;
   final double padding;
-  double? fontSize;
-   TextViewComponent({this.fontSize,required this.padding,required this.text,Key? key}) : super(key: key);
+  final double? fontSize;
+  const TextViewComponent({this.fontSize,required this.padding,required this.text,Key? key}) : super(key: key);
 
   @override
   State<TextViewComponent> createState() => _TextViewComponentState();
