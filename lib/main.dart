@@ -11,7 +11,7 @@ import 'app/core/navigation/app_navigation.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   MoviesBinding().dependencies();
-  InitControllerBinding().dependencies();
+  InitBinding().dependencies();
   runApp(const MyApp());
 }
 

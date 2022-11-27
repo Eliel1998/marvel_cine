@@ -79,8 +79,7 @@ class _HomePageState extends State<MoviesPage> {
                           scrollDirection: Axis.horizontal,
                           itemCount: controller.movieStore.movies.length,
                           itemBuilder: (context, index) {
-                            final MovieEntity movie =
-                                controller.movieStore.movies[index];
+                            final MovieEntity movie = controller.movieStore.movies[index];
                             return Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [

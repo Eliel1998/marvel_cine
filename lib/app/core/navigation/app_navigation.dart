@@ -15,7 +15,7 @@ class AppNavigation {
     GetPage(
       name: '/initPage',
       page: () => const InitPage(),
-      binding: InitControllerBinding(),
+      binding: InitBinding(),
     ),
   ];
 }
