@@ -1,5 +1,6 @@
 import 'package:get/route_manager.dart';
 import 'package:marvel_cine/app/feature/app_init/pages/init_page.dart';
+import 'package:marvel_cine/app/feature/movies/presenter/pages/movie_details_page.dart';
 
 import '../../feature/movies/presenter/pages/movies_page.dart';
 import '../../feature/app_init/bindings/init_binding.dart';
@@ -16,6 +17,10 @@ class AppNavigation {
       name: '/initPage',
       page: () => const InitPage(),
       binding: InitBinding(),
+    ),
+    GetPage(
+      name: '/movieDetailsPage',
+      page: () => const MovieDetailsPage(),
     ),
   ];
 }
