@@ -3,7 +3,7 @@ import 'package:marvel_cine/app/feature/movies/domain/usecases/get_movies_usecas
 
 import '../store/movie_store.dart';
 
-class MoviesController{
+class MoviesController {
   final GetMoviesUsecase getMoviesUsecase;
   final MovieStore movieStore;
 
@@ -12,9 +12,12 @@ class MoviesController{
     required this.movieStore,
   });
 
-  void getMovies() async{
+  void getMovies() async {
     List<MovieEntity> movies = await getMoviesUsecase.call();
     movieStore.addMovies(movies);
   }
 
+  String lineBeak(String value) {
+    return value.replaceFirst(RegExp(r':'), ':\n');
+  }
 }
