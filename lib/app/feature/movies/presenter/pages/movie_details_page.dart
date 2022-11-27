@@ -23,27 +23,27 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
         elevation: 0.0,
       ),
       extendBodyBehindAppBar: true,
-      body: Container(
-        padding: const EdgeInsets.all(5.0),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(movie.imageUrl),
-            fit: BoxFit.cover,
+      body: Column(
+        children: [
+          // ignore: sort_child_properties_last
+          Hero(tag: movie.id, child:Container(
+            height: MediaQuery.of(context).size.height * 0.65,
+            decoration: BoxDecoration(
+              // color: Colors.black.withOpacity(0.9),
+              image: DecorationImage(
+               image: Image.network(movie.imageUrl).image,
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.2), BlendMode.darken),
+              ),
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ) ,
+          transitionOnUserGestures: true,
           ),
-        ),
-          height: double.infinity,
-          width: double.infinity,
-          child: Hero(
-            tag: movie.id,
-            child: Center(
+          Expanded(child: Center(
           child: Container(
             padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.8),
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-            ),
-            height: 240,
-            // width: 500,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -103,8 +103,9 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
               ],
             ),
           ),
-        ),
-          )),
+        ),)
+        ],
+      ),
     );
   }
 }
