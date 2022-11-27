@@ -17,10 +17,16 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
+      extendBodyBehindAppBar: true,
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: Image.network(movie.imageUrl).image,
@@ -38,8 +44,8 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
               color: Colors.black.withOpacity(0.8),
               borderRadius: const BorderRadius.all(Radius.circular(15)),
             ),
-            height: 200,
-            width: 400,
+            height: 240,
+            // width: 500,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
