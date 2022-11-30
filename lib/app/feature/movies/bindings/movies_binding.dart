@@ -10,11 +10,11 @@ import '../presenter/controller/movies_controller.dart';
 class MoviesBinding extends Bindings {
   @override
   Future<void> dependencies() async {
-    Get.put(FakeDioClient());
-    Get.lazyPut(()=> MovieStore());
+    Get.put(FakeDioClient(), permanent: true);
+    Get.put(MovieStore(), permanent: true);
     Get.put(MoviesDatasourceImpl(dio: Get.find<FakeDioClient>()));
     Get.put(MoviesRepositoryImpl(moviesDatasource: Get.find<MoviesDatasourceImpl>()));
     Get.put(GetMoviesUsecaseImpl(moviesRepository: Get.find<MoviesRepositoryImpl>()));
-    Get.lazyPut(()=> MoviesController(getMoviesUsecase: Get.find<GetMoviesUsecaseImpl>(), movieStore: Get.find<MovieStore>()));
+    Get.put(MoviesController(getMoviesUsecase: Get.find<GetMoviesUsecaseImpl>(), movieStore: Get.find<MovieStore>()));
   }
 }

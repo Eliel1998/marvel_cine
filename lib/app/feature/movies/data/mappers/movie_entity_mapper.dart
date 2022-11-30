@@ -18,8 +18,7 @@ class MovieEntityMapper {
       title: map['title'],
       video: map['video'],
       voteAverage: map['vote_average'],
-      voteCount: map['vote_count'],
-      
+      voteCount: map['vote_count'], 
     );
   }
 }

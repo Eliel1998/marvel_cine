@@ -16,7 +16,7 @@ class MoviesPage extends StatefulWidget {
 }
 
 class _HomePageState extends State<MoviesPage> {
-  initAll() async {
+  init() async {
     Future.delayed(const Duration(seconds: 2), () {
       controller.getMovies();
     });
@@ -26,7 +26,7 @@ class _HomePageState extends State<MoviesPage> {
   Size get screen => MediaQuery.of(context).size;
   @override
   void initState() {
-    initAll();
+    init();
     super.initState();
   }
 
@@ -52,15 +52,13 @@ class _HomePageState extends State<MoviesPage> {
         elevation: 0.0,
       ),
       extendBodyBehindAppBar: true,
-      body: Obx(() => Container(
+      body: Container(
             padding: const EdgeInsets.only(bottom: 15, left: 15, top: 15),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image:
-                    Image.asset('assets/images/decoration_avengers.png').image,
+                image:Image.asset('assets/images/decoration_avengers.png').image,
                 fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.6), BlendMode.darken),
+                colorFilter: ColorFilter.mode( Colors.black.withOpacity(0.6), BlendMode.darken),
               ),
             ),
             child: Column(
@@ -76,11 +74,10 @@ class _HomePageState extends State<MoviesPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children:const [
-                    TextViewComponent(
-                        padding: 8, text: 'LINHA DO TEMPO', fontSize: 15),
+                    TextViewComponent(padding: 8, text: 'LINHA DO TEMPO', fontSize: 15),
                   ],
                 ),
-                Container(
+                Obx(() => Container(
                   margin: const EdgeInsets.only(bottom: 60),
                   height: 280,
                   child: controller.movieStore.movies.isEmpty
@@ -96,7 +93,6 @@ class _HomePageState extends State<MoviesPage> {
                               children: [
                                 MovieTile(index: index, movie: movie,onTap: () {
                                   Get.toNamed(MovieDetailsPage.routeName, arguments: movie);
-
                                 },),
                                 Text(
                                   controller.lineBeak(movie.title),
@@ -113,11 +109,11 @@ class _HomePageState extends State<MoviesPage> {
                               ],
                             );
                           },
-                        ),
-                ),
+                      ),
+                )),
               ],
             ),
-          )),
+          ),//fim container maior
     );
   }
 }

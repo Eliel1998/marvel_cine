@@ -6,9 +6,7 @@ import '../failures/failures.dart';
 class MoviesRepositoryImpl implements MoviesRepository {
   final MoviesDatasource _moviesDatasource;
 
-  MoviesRepositoryImpl({
-    required MoviesDatasource moviesDatasource,
-  }) : _moviesDatasource = moviesDatasource;
+  MoviesRepositoryImpl({ required MoviesDatasource moviesDatasource}) : _moviesDatasource = moviesDatasource;
 
   @override
   Future<List<MovieEntity>> getMovies() async {
