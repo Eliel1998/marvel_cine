@@ -48,14 +48,3 @@ class UnknownMovieFailure extends MovieFailure {
         );
 }
 
-class InvalidCredentialsMovieFailure extends MovieFailure {
-  InvalidCredentialsMovieFailure({
-    String errorMessage = 'Credenciais invalidas, tente novamente.',
-    StackTrace? stackTrace,
-    String? label,
-  }) : super(
-          errorMessage: errorMessage,
-          stackTrace: stackTrace,
-          label: label,
-        );
-}
